@@ -9,8 +9,8 @@ services:
     ports:
       - "8080:80"
     networks:
-        - ctf-6.external
-        - ctf-6.internal
+      - ctf-6.external
+      - ctf-6.internal
     hostname: openfids
     container_name: openfids
     restart: always
@@ -46,7 +46,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     networks:
-        - ctf-6.external
+      - ctf-6.external
     hostname: kali
     container_name: kali 
 
