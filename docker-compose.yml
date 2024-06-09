@@ -8,36 +8,58 @@ services:
       - db
     ports:
       - "8080:80"
+    networks:
+        - ctf-6.external
+        - ctf-6.internal
+    hostname: web-server
+    container_name: web-server
+    restart: always
 
   db:
     image: mysql:5.7
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword 
       MYSQL_DATABASE: fids
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
-    volumes:
-      - db_data:/var/lib/mysql
-    ports:
-      - "3306:3306"
+      networks:
+          - ctf-6.internal
+      container_name: fids-db
+      hostname: fids-db
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    restart: always
-    depends_on:
-      - db
-    environment:
-      PMA_HOST: db
+
+  #phpmyadmin:
+    #image: phpmyadmin/phpmyadmin
+    #restart: always
+    #depends_on:
+     # - db
+    #environment:
+      #PMA_HOST: db
       #PMA_USER: openfids
       #PMA_PASSWORD: Lt69lzYJNoLCPH5s
-    ports:
-      - "8081:80"
+    #ports:
+      #- "8081:80"
   kali:
     build:
       context: ./kali
       dockerfile: Dockerfile
-    ports:
-      - "9090:80"
+    restart: always
+    networks:
+        - ctf-6.external
+    hostname: kali
+    container_name: kali 
 
 volumes:
   db_data:
+
+networks:
+    ctf-6.external:
+        driver: bridge
+        ipam:
+            driver: default
+    ctf-6.internal:
+        driver: bridge
+        ipam:
+            driver: default
+        internal: true
