@@ -11,7 +11,7 @@ services:
     networks:
       - ctf-6.external
       - ctf-6.internal
-    hostname: openfids
+    #hostname: openfids
     container_name: openfids
     restart: always
 
@@ -26,7 +26,8 @@ services:
       networks:
         - ctf-6.internal
       container_name: fids
-      hostname: fids
+      #hostname: fids
+      
 
 
   #phpmyadmin:
