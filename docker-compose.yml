@@ -11,8 +11,8 @@ services:
     networks:
         - ctf-6.external
         - ctf-6.internal
-    hostname: web-server
-    container_name: web-server
+    hostname: openfids
+    container_name: openfids
     restart: always
 
   db:
@@ -24,9 +24,9 @@ services:
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
       networks:
-          - ctf-6.internal
-      container_name: fids-db
-      hostname: fids-db
+        - ctf-6.internal
+      container_name: fids
+      hostname: fids
 
 
   #phpmyadmin:
