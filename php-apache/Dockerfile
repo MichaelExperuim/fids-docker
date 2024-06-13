@@ -34,7 +34,7 @@ RUN chmod +x /entrypoint.sh
 # Set the entrypoint script to run on container startup
 ENTRYPOINT ["/entrypoint.sh"]
 
-EXPOSE 3306
+EXPOSE 8080
 
 # Expose port 80 (for internal container use)
 EXPOSE 80
