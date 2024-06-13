@@ -42,6 +42,3 @@ EXPOSE 80
 
 # Start SSH service
 CMD ["/usr/sbin/sshd", "-D"]
-
-# Set custom ServerName
-RUN echo "ServerName fids-terminus" >> /etc/apache2/apache2.conf
