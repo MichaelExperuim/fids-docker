@@ -16,9 +16,8 @@ services:
     restart: always
 
   db:
-    image: mysql:5.7
     build: 
-      context: ./php-apache
+      context: ./mysql
       dockerfile: Dockerfile
     restart: always
     environment:
