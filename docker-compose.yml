@@ -50,6 +50,9 @@ services:
         - ctf-6.external
     hostname: kali
     container_name: kali 
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
 
 volumes:
   db_data:
