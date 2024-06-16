@@ -55,9 +55,11 @@ services:
     cap_add:
       - NET_ADMIN
       - NET_RAW
+    privileged: true
 
 volumes:
   db_data:
+
 
 networks:
     ctf-6.external:
