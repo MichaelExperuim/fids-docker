@@ -25,10 +25,12 @@ services:
       MYSQL_DATABASE: fids
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
-      networks:
-          - ctf-6.internal
-      container_name: db
-      hostname: db
+    ports:
+      - "3306:3306"
+    networks:
+        - ctf-6.internal
+    container_name: db
+    hostname: db
       
 
 

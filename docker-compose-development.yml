@@ -22,8 +22,12 @@ services:
       MYSQL_DATABASE: fids
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
-      container_name: db
-      hostname: db
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    container_name: db
+    hostname: db
   #phpmyadmin:
     #image: phpmyadmin/phpmyadmin
     #restart: always
