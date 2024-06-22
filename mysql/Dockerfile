@@ -9,5 +9,4 @@ ENV MYSQL_PASSWORD=admin
 # Expose MySQL port
 EXPOSE 3306
 
-# Volume to persist data
-VOLUME ["/var/lib/mysql"]
+
