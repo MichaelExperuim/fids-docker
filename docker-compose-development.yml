@@ -39,17 +39,20 @@ services:
       #PMA_PASSWORD: Lt69lzYJNoLCPH5s
     #ports:
       #- "8081:80"
-  kali:
-    build:
-      context: ./kali
-      dockerfile: Dockerfile
-    restart: always
-    hostname: kali
-    container_name: kali 
-    cap_add:
-      - NET_ADMIN
-      - NET_RAW
-    privileged: true
+  #kali:
+    #build:
+      #context: ./kali
+    #  dockerfile: Dockerfile-development
+    #restart: always
+    #hostname: kali
+    #container_name: kali 
+    #stdin_open: true # docker run -i
+    #tty: true        # docker run -t
+    #command: /bin/bash
+    #cap_add:
+      #- NET_ADMIN
+      #- NET_RAW
+    #privileged: true
 
 volumes:
   db_data:

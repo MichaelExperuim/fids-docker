@@ -13,15 +13,6 @@ RUN apt-get update && apt-get install -y openssh-server sudo
 # Create a directory for SSH
 RUN mkdir /var/run/sshd
 
-# Create a flight_manager user with a password
-RUN useradd -m fids_developer && echo "fids_developer:itsaplane" | chpasswd
-
-# Allow fids_developer to use sudo without a password
-RUN echo "fids_developer ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-
-# Enable password authentication for SSH
-RUN sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
-
 # Copy Open FIDS files into the Apache document root
 COPY openfids/fidsversion1.2/ /var/www/html/
 

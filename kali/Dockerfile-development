@@ -3,7 +3,11 @@ FROM kalilinux/kali-rolling:latest
 RUN apt update -y && apt install -y openssh-client nmap net-tools dirb gobuster netcat-traditional
 # RUN apt update -y && apt install -y openssh-client nmap iproute2 net-tools iputils-ping dirb gobuster netcat-traditional
 
-# Start a Bash shell and tail to keep the container running
-# When the container starts, automatically drop into a shell
-CMD ["/bin/bash"]
-CMD ["tail", "-f", "/dev/null"]
+#COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+#RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Set the entrypoint to wait for dependencies
+#ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+# Start a Bash shell and keep the container running
+CMD ["/bin/bash", "-c", "tail -f /dev/null"]
