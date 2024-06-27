@@ -1,3 +1,0 @@
-CREATE USER 'openfids'@'%' IDENTIFIED BY 'Lt69lzYJNoLCPH5s';
-GRANT ALL PRIVILEGES ON fids.* TO 'openfids'@'%';
-FLUSH PRIVILEGES;
