@@ -9,6 +9,9 @@ ENV MYSQL_PASSWORD=Lt69lzYJNoLCPH5s
 # Copy init script
 COPY init-db.sh /docker-entrypoint-initdb.d/init-db.sh
 
+#Update mysql configuration
+RUN echo "[mysqld]\nbind-address=0.0.0.0" > /etc/mysql/mysql.conf.d/z_custom.cnf
+
 # Make the script executable
 RUN chmod +x /docker-entrypoint-initdb.d/init-db.sh
 
