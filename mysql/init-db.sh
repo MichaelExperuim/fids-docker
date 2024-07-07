@@ -10,7 +10,6 @@ OPENFIDS_IP=$(getent hosts openfids | awk '{ print $1 }')
 echo "$OPENFIDS_IP openfids" >> /etc/hosts
 
 # Create the user and grant privileges
-mysql -uroot -p"rootpassword" -e "
-CREATE USER 'openfids'@'%' IDENTIFIED BY 'Lt69lzYJNoLCPH5s';
-GRANT ALL PRIVILEGES ON fids.* TO 'openfids'@'%';
+mysql -uroot -p"${MYSQL_ROOT_PASSWORD}" -e "
+GRANT ALL PRIVILEGES ON *.* TO 'openfids'@'%' IDENTIFIED BY 'Lt69lzYJNoLCPH5s';
 FLUSH PRIVILEGES;"
