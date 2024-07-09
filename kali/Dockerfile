@@ -1,4 +1,3 @@
 FROM kalilinux/kali-rolling:latest
 
-RUN apt update -y && apt install -y openssh-client nmap net-tools netcat-traditional gobuster dirb burpsuite sqlmap default-mysql-client
-# RUN apt update -y && apt install -y openssh-client nmap iproute2 net-tools iputils-ping dirb gobuster netcat-traditional
+RUN apt update -y && apt install -y openssh-client nmap net-tools netcat-traditional gobuster dirb burpsuite sqlmap iputils-ping iproute2 default-mysql-client
