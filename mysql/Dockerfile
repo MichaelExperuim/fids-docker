@@ -5,17 +5,21 @@ ENV MYSQL_ROOT_PASSWORD=rootpassword
 ENV MYSQL_DATABASE=fids
 ENV MYSQL_USER=openfids
 ENV MYSQL_PASSWORD=Lt69lzYJNoLCPH5s
+ENV MYSQL_ROOT_HOST=%
 
 # Copy init script
 COPY init-db.sh /docker-entrypoint-initdb.d/init-db.sh
 
-#Update mysql configuration
-RUN echo "[mysqld]\nbind-address=0.0.0.0" > /etc/mysql/mysql.conf.d/z_custom.cnf
+# Update mysql configuration to allow remote connections
+COPY mysql.cnf /etc/mysql/conf.d/
 
 # Make the script executable
 RUN chmod +x /docker-entrypoint-initdb.d/init-db.sh
 
 # Expose MySQL port
 EXPOSE 3306
+
+
+
 
 
