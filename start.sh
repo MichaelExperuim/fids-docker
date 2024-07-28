@@ -68,7 +68,7 @@ docker network connect ${app}.network-internal ${app}.app --ip="172.16.245.12"
 docker exec ${app}.app sh -c "echo '172.16.245.32 db' >> /etc/hosts"
 
 # build kali linux from the kali subdirectory
-docker build -t ${app}.kali -f kali/Dockerfile-development ./kali
+docker build -t ${app}.kali -f kali/Dockerfile ./kali
 
 # run kali linux container
 docker run -td \
